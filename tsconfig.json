@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2017",
+    "strict": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true
+  },
+  "exclude": ["build"]
+}

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add command should create an address and reply success message 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+Thanks, you're all set. Enjoy ! 🚀
+      ",
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message is address already exist 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "This address is already registered, please choose another one",
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message when coin is not supported 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "This coin is not suppoorted on the pool",
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message when invalid coin 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Invalid coin",
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message when invalid pool 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Invalid pool",
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message when no arguments 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+⚠️ *Invalid arguments*
+-----------------
+/start <coin name> <pool name> <address>
+-----------------
+Valid coins: eth etc xmr ltc dash
+Valid pools: ethermine coinfoundry
+_Example: \\"/start eth ethermine 0x00000000...\\"_
+    ",
+      Object {
+        "parse_mode": "Markdown",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`add command should reply invalid message when no enough arguments 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+⚠️ *Invalid arguments*
+-----------------
+/start <coin name> <pool name> <address>
+-----------------
+Valid coins: eth etc xmr ltc dash
+Valid pools: ethermine coinfoundry
+_Example: \\"/start eth ethermine 0x00000000...\\"_
+    ",
+      Object {
+        "parse_mode": "Markdown",
+      },
+    ],
+  ],
+}
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`command help should reply help message 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "
+Don't worry, I'm here for you. 
+Relax and take a deep breath. 🍻
+
+Here's how you can control me :
+
+/start <coin> <pool> <address> - add a new address to your account 🏠
+/remove <address> - remove an address from yor account 🗑️
+/stats - get your current stats 🔎
+/payouts - get last payouts
+
+/help - ask me again ! 🤖
+  ",
+    ],
+  ],
+}
+`;
