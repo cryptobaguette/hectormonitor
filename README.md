@@ -1,8 +1,10 @@
-<div style="text-align:center"><h1>hectormonitor</h1></div>
+<div style="text-align:center">
+  <h1>hectormonitor</h1>
 
-<div style="text-align:center"><img src="assets/logo.jpg" width="300" /></div>
+  <img src="assets/logo.jpg" width="300" />
 
-<div style="text-align:center"><p>Telegram bot to help you track your miners across multiple pools and coins</p></div>
+  <p>Telegram bot to help you track your miners across multiple pools and coins</p>
+</div>
 
 Direct link to HectorMonitor Telegram group : https://t.me/joinchat/G3tGHlDeYYfP8WKZoMJnqw
 
