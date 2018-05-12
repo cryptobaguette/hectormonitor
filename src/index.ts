@@ -1,5 +1,7 @@
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import { TelegramBot } from 'bottender';
-import { createServer } from 'bottender/express';
+import { createMiddleware } from 'bottender/express';
 import * as mongoose from 'mongoose';
 import * as Agendash from 'agendash';
 import * as swaggerStats from 'swagger-stats';
@@ -25,15 +27,18 @@ if (process.env.NODE_ENV === 'development') {
   bot.createLongPollingRuntime();
 }
 
-const server = createServer(bot, {
-  path: `/${process.env.TELEGRAM_URL_SECRET}`,
-});
+const app = express();
 
-server.use(swaggerStats.getMiddleware());
-server.use('/dash', Agendash(agenda));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(swaggerStats.getMiddleware());
+app.use('/dash', Agendash(agenda));
+
+app.post(`/${process.env.TELEGRAM_URL_SECRET}`, createMiddleware(bot));
 
 const port = process.env.PORT || 3000;
-server.listen(port, async () => {
+app.listen(port, async () => {
   logger.info(`Server is running on port ${port}`);
 
   /**
