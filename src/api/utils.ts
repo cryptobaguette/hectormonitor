@@ -5,6 +5,10 @@ import { logger } from '../logger';
 
 export interface PoolApi {
   /**
+   * List of coins the pool support
+   */
+  coins: Coins[];
+  /**
    * Does the pool allow mining of that coin
    */
   isCoinSupported(coin: Coins): boolean;

@@ -1,4 +1,5 @@
 const poolApi = {
+  coins: [],
   isCoinSupported: jest.fn(() => true),
   isAdressValid: jest.fn(() => Promise.resolve(true)),
 };

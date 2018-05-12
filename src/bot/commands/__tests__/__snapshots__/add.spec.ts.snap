@@ -26,7 +26,9 @@ exports[`add command should reply invalid message when coin is not supported 1`]
 [MockFunction] {
   "calls": Array [
     Array [
-      "This coin is not suppoorted on the pool",
+      "
+This coin is not supported on the pool.
+Supported coins on this pool: .",
     ],
   ],
 }

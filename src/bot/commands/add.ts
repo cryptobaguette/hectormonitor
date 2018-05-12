@@ -30,7 +30,11 @@ export const add = async (context: Context) => {
     }
     const poolApi = getPoolApi(pool as Pools);
     if (!poolApi.isCoinSupported(coin as Coins)) {
-      await context.sendText(`This coin is not suppoorted on the pool`);
+      await context.sendText(
+        `
+This coin is not supported on the pool.
+Supported coins on this pool: ${poolApi.coins.join(' ')}.`
+      );
       return;
     }
     if (!(await poolApi.isAdressValid(coin as Coins, address))) {
