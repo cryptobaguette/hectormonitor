@@ -36,7 +36,7 @@ exports[`add command should reply invalid message when invalid coin 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
-      "Invalid coin",
+      "Invalid coin (supported coins: eth etc xmr ltc dash)",
     ],
   ],
 }
@@ -46,7 +46,7 @@ exports[`add command should reply invalid message when invalid pool 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
-      "Invalid pool",
+      "Invalid pool (supported pools: ethermine coinfoundry)",
     ],
   ],
 }

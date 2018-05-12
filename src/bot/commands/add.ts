@@ -17,11 +17,15 @@ export const add = async (context: Context) => {
 
   if (coin && pool && address) {
     if (!isValidCoin(coin)) {
-      await context.sendText(`Invalid coin`);
+      await context.sendText(
+        `Invalid coin (supported coins: ${Object.keys(Coins).join(' ')})`
+      );
       return;
     }
     if (!isValidPool(pool)) {
-      await context.sendText(`Invalid pool`);
+      await context.sendText(
+        `Invalid pool (supported pools: ${Object.keys(Pools).join(' ')})`
+      );
       return;
     }
     const poolApi = getPoolApi(pool as Pools);
