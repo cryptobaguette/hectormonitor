@@ -5,16 +5,21 @@ import { logger } from '../../logger';
 import { PoolApi, PoolPayout, fetch, PoolStats } from '../utils';
 
 export class Ethermine implements PoolApi {
-  public apiUrl = 'https://api.ethermine.org';
-  public coins: Coins[] = [Coins.eth];
+  public apiUrl: {
+    [key: string]: string;
+  } = {
+    [Coins.eth]: 'https://api.ethermine.org',
+    [Coins.etc]: 'https://api-etc.ethermine.org',
+  };
+  public coins: Coins[] = [Coins.eth, Coins.etc];
 
   public isCoinSupported(coin: Coins) {
     return this.coins.includes(coin);
   }
 
-  public async isAdressValid(_: Coins, address: string): Promise<boolean> {
+  public async isAdressValid(coin: Coins, address: string): Promise<boolean> {
     try {
-      await this.fetch(`/miner/${address}/currentStats`);
+      await this.fetch(coin, `/miner/${address}/currentStats`);
     } catch (err) {
       if (err instanceof NoDataAddressError) {
         return false;
@@ -25,22 +30,22 @@ export class Ethermine implements PoolApi {
   }
 
   public async getLastPayout(
-    _: Coins,
+    coin: Coins,
     address: string
   ): Promise<PoolPayout | null> {
-    const payouts: any[] = await this.fetch(`/miner/${address}/payouts`);
+    const payouts: any[] = await this.fetch(coin, `/miner/${address}/payouts`);
     return payouts && payouts.length > 0
       ? this.normalizePayout(payouts[0])
       : null;
   }
 
-  public async getPayouts(_: Coins, address: string): Promise<PoolPayout[]> {
-    const payouts: any[] = await this.fetch(`/miner/${address}/payouts`);
+  public async getPayouts(coin: Coins, address: string): Promise<PoolPayout[]> {
+    const payouts: any[] = await this.fetch(coin, `/miner/${address}/payouts`);
     return payouts.map(this.normalizePayout);
   }
 
-  public async getStats(_: Coins, address: string): Promise<PoolStats> {
-    const stats = await this.fetch(`/miner/${address}/currentStats`);
+  public async getStats(coin: Coins, address: string): Promise<PoolStats> {
+    const stats = await this.fetch(coin, `/miner/${address}/currentStats`);
     return this.normalizeStats(stats);
   }
 
@@ -63,9 +68,10 @@ export class Ethermine implements PoolApi {
     };
   }
 
-  private async fetch(endpoint: string): Promise<any> {
-    const res = await fetch(`${this.apiUrl}${endpoint}`);
+  private async fetch(coin: Coins, endpoint: string): Promise<any> {
+    const res = await fetch(`${this.apiUrl[coin]}${endpoint}`);
     const { data, status, error } = res;
+
     // Api return error
     if (status === 'ERROR') {
       if (error === 'Invalid address') {
