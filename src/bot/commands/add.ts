@@ -94,11 +94,11 @@ Thanks, you're all set. Enjoy ! 🚀
       `
 ⚠️ *Invalid arguments*
 -----------------
-/start <coin name> <pool name> <address>
+/add <coin name> <pool name> <address>
 -----------------
 Valid coins: ${Object.keys(Coins).join(' ')}
 Valid pools: ${Object.keys(Pools).join(' ')}
-_Example: "/start eth ethermine 0x00000000...\"_
+_Example: "/add eth ethermine 0x00000000...\"_
     `,
       { parse_mode: 'Markdown' }
     );
