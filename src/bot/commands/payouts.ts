@@ -32,10 +32,9 @@ You can setup one with /start.
   for (const address of addresses) {
     const poolApi = getPoolApi(address.pool);
     if (poolApi.getPayouts) {
-      const userPayouts = await poolApi.getPayouts(
-        address.coin,
-        address.address
-      );
+      let userPayouts = await poolApi.getPayouts(address.coin, address.address);
+      // Limit to last 20
+      userPayouts = userPayouts.slice(0, 20);
       const totalFormattedAmount = getFormattedPayoutAmount(
         address.coin,
         sum(userPayouts.map(payout => payout.amount))

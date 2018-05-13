@@ -63,7 +63,7 @@ export class Ethermine implements PoolApi {
       currentHashrate: stats.currentHashrate || 0,
       averageHashrate: stats.averageHashrate,
       unpaid: Number(ethunits.convert(stats.unpaid || 0, 'wei', 'ether')),
-      lastSeen: stats.lastSeen * 1000,
+      lastSeen: stats.lastSeen! * 1000,
       activeWorkers: stats.activeWorkers || 0,
     };
   }

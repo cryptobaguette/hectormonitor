@@ -11,7 +11,7 @@ Direct link to the Telegram bot : https://t.me/hectormonitorbot
 ## Features
 
 * Multi coins (etc, eth, xmr, ltc, dash)
-* Multi pools (ethermine, coinfoundry)
+* Multi pools (ethermine, coinfoundry, nanopool)
 * Get notifications on new payouts
 * Get notifications when your miner is down
 * Visualize your miner stats

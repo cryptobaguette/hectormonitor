@@ -59,3 +59,12 @@ export const getFormattedHahrate = (_: Coins, hashrate: number): string => {
   }
   return `${parseFloat(hashrate.toFixed(2))} ${units[i]}`;
 };
+
+export const getFormattedError = (address: Address, err: any) => {
+  return `
+${getAddressHeader(address)}
+-----------------
+*Error*:
+${err.message}
+  `;
+};

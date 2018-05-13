@@ -8,5 +8,6 @@ export enum Coins {
 
 export enum Pools {
   ethermine = 'ethermine',
+  nanopool = 'nanopool',
   coinfoundry = 'coinfoundry',
 }

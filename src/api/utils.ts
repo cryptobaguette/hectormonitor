@@ -41,7 +41,7 @@ export interface PoolStats {
   averageHashrate?: number;
   currentHashrate: number;
   unpaid: number;
-  lastSeen: number;
+  lastSeen?: number;
   activeWorkers: number;
 }
 

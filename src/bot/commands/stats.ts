@@ -6,6 +6,7 @@ import {
   getFormattedTimeAgo,
   getFormattedPayoutAmount,
   getFormattedHahrate,
+  getFormattedError,
 } from '../utils';
 
 export const stats = async (context: Context) => {
@@ -29,41 +30,50 @@ You can setup one with /start.
   }
 
   for (const address of addresses) {
-    const poolApi = getPoolApi(address.pool);
-    const userStats = await poolApi.getStats(address.coin, address.address);
+    try {
+      const poolApi = getPoolApi(address.pool);
+      const userStats = await poolApi.getStats(address.coin, address.address);
 
-    const formattedTimeAgo = getFormattedTimeAgo(userStats.lastSeen);
-    const formattedUnpaid = getFormattedPayoutAmount(
-      address.coin,
-      userStats.unpaid
-    );
-    const formattedCurrentHashrate = getFormattedHahrate(
-      address.coin,
-      userStats.currentHashrate
-    );
-    const formattedReportedHashrate = userStats.reportedHashrate
-      ? getFormattedHahrate(address.coin, userStats.reportedHashrate)
-      : null;
-    const formattedAverageHashrate = userStats.averageHashrate
-      ? getFormattedHahrate(address.coin, userStats.averageHashrate)
-      : null;
+      const formattedTimeAgo = userStats.lastSeen
+        ? getFormattedTimeAgo(userStats.lastSeen)
+        : null;
+      const formattedUnpaid = getFormattedPayoutAmount(
+        address.coin,
+        userStats.unpaid
+      );
+      const formattedCurrentHashrate = getFormattedHahrate(
+        address.coin,
+        userStats.currentHashrate
+      );
+      const formattedReportedHashrate = userStats.reportedHashrate
+        ? getFormattedHahrate(address.coin, userStats.reportedHashrate)
+        : null;
+      const formattedAverageHashrate = userStats.averageHashrate
+        ? getFormattedHahrate(address.coin, userStats.averageHashrate)
+        : null;
 
-    let reply = `
+      let reply = `
 ${getAddressHeader(address)}
 -----------------
 🔎 *Status*:
 `;
-    if (formattedReportedHashrate) {
-      reply += `Reported miner Hashrate: *${formattedReportedHashrate}*\n`;
-    }
-    reply += `Pool Current Hashrate: *${formattedCurrentHashrate}*\n`;
-    if (formattedAverageHashrate) {
-      reply += `Pool Average Hashrate: *${formattedAverageHashrate}* (last 24h)\n`;
-    }
-    reply += `Unpaid balance: *${formattedUnpaid}*\n`;
-    reply += `Last seen: ${formattedTimeAgo}\n`;
-    reply += `Current active workers: ${userStats.activeWorkers}`;
+      if (formattedReportedHashrate) {
+        reply += `Reported miner Hashrate: *${formattedReportedHashrate}*\n`;
+      }
+      reply += `Pool Current Hashrate: *${formattedCurrentHashrate}*\n`;
+      if (formattedAverageHashrate) {
+        reply += `Pool Average Hashrate: *${formattedAverageHashrate}* (last 24h)\n`;
+      }
+      reply += `Unpaid balance: *${formattedUnpaid}*\n`;
+      if (formattedTimeAgo) {
+        reply += `Last seen: ${formattedTimeAgo}\n`;
+      }
+      reply += `Current active workers: ${userStats.activeWorkers}`;
 
-    await context.sendText(reply, { parse_mode: 'Markdown' });
+      await context.sendText(reply, { parse_mode: 'Markdown' });
+    } catch (err) {
+      const errorMessage = getFormattedError(address, err);
+      await context.sendText(errorMessage, { parse_mode: 'Markdown' });
+    }
   }
 };
