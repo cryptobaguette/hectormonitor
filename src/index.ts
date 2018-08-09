@@ -37,6 +37,10 @@ app.use('/dash', Agendash(agenda));
 
 app.post(`/${process.env.TELEGRAM_URL_SECRET}`, createMiddleware(bot));
 
+app.get('/status', (_, res) => {
+  res.status(200).json();
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, async () => {
   logger.info(`Server is running on port ${port}`);

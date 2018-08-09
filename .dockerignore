@@ -1,6 +1,0 @@
-.git
-.env.dev
-build
-node_modules
-coverage
-*.log

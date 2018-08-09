@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "start": "env-cmd .env.prod node build/index.js",
+    "start": "NODE_ENV=production node build/index.js",
     "dev": "env-cmd .env.dev nodemon",
     "build": "tsc",
     "test":
