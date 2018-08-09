@@ -1,0 +1,15 @@
+{
+  "name": "hectormonitor",
+  "public": true,
+  "alias": "hectormonitor",
+  "engines": {
+    "node": "^10.0.0"
+  },
+  "env": {
+    "TELEGRAM_TOKEN": "@hectormonitor-telegram-token",
+    "MONGO_URL": "@hectormonitor-mongo-url",
+    "TELEGRAM_URL_SECRET": "@hectormonitor-telegram-url-secret",
+    "APP_URL": "@hectormonitor-telegram-app-url"
+  },
+  "files": ["package.json", "yarn.lock", "tsconfig.json", "src"]
+}
