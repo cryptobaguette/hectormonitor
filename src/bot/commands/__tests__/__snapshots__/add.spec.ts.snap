@@ -48,7 +48,7 @@ exports[`add command should reply invalid message when invalid pool 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
-      "Invalid pool (supported pools: ethermine coinfoundry)",
+      "Invalid pool (supported pools: ethermine nanopool coinfoundry)",
     ],
   ],
 }
@@ -61,11 +61,11 @@ exports[`add command should reply invalid message when no arguments 1`] = `
       "
 ⚠️ *Invalid arguments*
 -----------------
-/start <coin name> <pool name> <address>
+/add <coin name> <pool name> <address>
 -----------------
 Valid coins: eth etc xmr ltc dash
-Valid pools: ethermine coinfoundry
-_Example: \\"/start eth ethermine 0x00000000...\\"_
+Valid pools: ethermine nanopool coinfoundry
+_Example: \\"/add eth ethermine 0x00000000...\\"_
     ",
       Object {
         "parse_mode": "Markdown",
@@ -82,11 +82,11 @@ exports[`add command should reply invalid message when no enough arguments 1`] =
       "
 ⚠️ *Invalid arguments*
 -----------------
-/start <coin name> <pool name> <address>
+/add <coin name> <pool name> <address>
 -----------------
 Valid coins: eth etc xmr ltc dash
-Valid pools: ethermine coinfoundry
-_Example: \\"/start eth ethermine 0x00000000...\\"_
+Valid pools: ethermine nanopool coinfoundry
+_Example: \\"/add eth ethermine 0x00000000...\\"_
     ",
       Object {
         "parse_mode": "Markdown",
