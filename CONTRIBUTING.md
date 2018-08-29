@@ -15,8 +15,8 @@
 
 ## Development
 
-* [Install Node.js](https://nodejs.org/en/download/)
-* [Install Yarn](https://yarnpkg.com/en/docs/install#mac-stable)
+- [Install Node.js](https://nodejs.org/en/download/)
+- [Install Yarn](https://yarnpkg.com/en/docs/install#mac-stable)
 
 ## Pull request
 
