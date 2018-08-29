@@ -60,7 +60,7 @@ Supported coins on this pool: ${poolApi.coins.join(' ')}.`
       address,
       userId: user.id,
     }).exec();
-    // Adress already exist for user so return
+    // Address already exist for user so return
     if (existingAddress) {
       await context.sendText(
         'This address is already registered, please choose another one'
