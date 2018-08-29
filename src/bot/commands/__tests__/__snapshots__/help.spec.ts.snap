@@ -21,5 +21,11 @@ If you need some help you can join the telegram group: https://t.me/joinchat/G3t
   ",
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
 }
 `;

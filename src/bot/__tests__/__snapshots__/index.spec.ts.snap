@@ -11,5 +11,11 @@ Hmm... I'm sorry, I didn't get that. Are you drunk or are you lost ? 🤔
   ",
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
 }
 `;
