@@ -1,7 +1,8 @@
 import { Context } from '../../types/bottender';
 
 export const help = async (context: Context) => {
-  await context.sendText(`
+  await context.sendText(
+    `
 Don't worry, I'm here for you. 
 Relax and take a deep breath. 🍻
 
@@ -15,5 +16,9 @@ Here's how you can control me :
 /help - ask me again ! 🤖
 
 If you need some help you can join the telegram group: https://t.me/joinchat/G3tGHlDeYYfP8WKZoMJnqw.
-  `);
+  `,
+    {
+      disable_web_page_preview: true,
+    }
+  );
 };
