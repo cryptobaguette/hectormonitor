@@ -9,6 +9,12 @@ Thanks, you're all set. Enjoy ! 🚀
       ",
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
 }
 `;
 
@@ -18,6 +24,12 @@ exports[`add command should reply invalid message is address already exist 1`] =
     Array [
       "This address is already registered, please choose another one",
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
   ],
 }
 `;
@@ -31,6 +43,12 @@ This coin is not supported on the pool.
 Supported coins on this pool: .",
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
 }
 `;
 
@@ -41,6 +59,12 @@ exports[`add command should reply invalid message when invalid coin 1`] = `
       "Invalid coin (supported coins: eth etc xmr ltc dash)",
     ],
   ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
 }
 `;
 
@@ -48,8 +72,14 @@ exports[`add command should reply invalid message when invalid pool 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
-      "Invalid pool (supported pools: ethermine coinfoundry)",
+      "Invalid pool (supported pools: ethermine nanopool coinfoundry)",
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
   ],
 }
 `;
@@ -61,16 +91,22 @@ exports[`add command should reply invalid message when no arguments 1`] = `
       "
 ⚠️ *Invalid arguments*
 -----------------
-/start <coin name> <pool name> <address>
+/add <coin name> <pool name> <address>
 -----------------
 Valid coins: eth etc xmr ltc dash
-Valid pools: ethermine coinfoundry
-_Example: \\"/start eth ethermine 0x00000000...\\"_
+Valid pools: ethermine nanopool coinfoundry
+_Example: \\"/add eth ethermine 0x00000000...\\"_
     ",
       Object {
         "parse_mode": "Markdown",
       },
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
   ],
 }
 `;
@@ -82,16 +118,22 @@ exports[`add command should reply invalid message when no enough arguments 1`] =
       "
 ⚠️ *Invalid arguments*
 -----------------
-/start <coin name> <pool name> <address>
+/add <coin name> <pool name> <address>
 -----------------
 Valid coins: eth etc xmr ltc dash
-Valid pools: ethermine coinfoundry
-_Example: \\"/start eth ethermine 0x00000000...\\"_
+Valid pools: ethermine nanopool coinfoundry
+_Example: \\"/add eth ethermine 0x00000000...\\"_
     ",
       Object {
         "parse_mode": "Markdown",
       },
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
   ],
 }
 `;

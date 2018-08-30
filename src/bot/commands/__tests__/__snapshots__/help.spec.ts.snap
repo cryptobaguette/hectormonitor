@@ -16,8 +16,16 @@ Here's how you can control me :
 /payouts - get last payouts
 
 /help - ask me again ! 🤖
+
+If you need some help you can join the telegram group: https://t.me/joinchat/G3tGHlDeYYfP8WKZoMJnqw.
   ",
     ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
   ],
 }
 `;

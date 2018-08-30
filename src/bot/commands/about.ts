@@ -5,6 +5,7 @@ export const about = async (context: Context) => {
 Hector monitor
 -----------------
 Github: https://github.com/cryptobaguette/hectormonitor
+Telegram group: https://t.me/joinchat/G3tGHlDeYYfP8WKZoMJnqw
 -----------------
 If you like this project and want to support the development please consider making a donation to:
 BTC: 13qjGdHZrUEewKR9CrxnRDoDniLQkoVg7u
